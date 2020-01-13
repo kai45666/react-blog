@@ -1,3 +1,24 @@
-.active {
-  color: red
+.header {
+  .top {
+    height: 60px;
+    h1 {
+      color: #515151;
+      font-size: 26px;
+    }
+    p {
+      color: #757575;
+      font-size: 14px;
+    }
+  }
+  .nav {
+    color: #6a6a6a;
+    list-style: none;
+    line-height: 50px;
+    border-bottom: 1px solid #ededed;
+    border-top: 1px solid #ededed;
+    margin: 20px 0;
+    li {
+      width: 80px;
+    }
+  }
 }

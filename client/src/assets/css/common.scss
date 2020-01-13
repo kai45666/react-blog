@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  background: rgb(230, 230, 230);
+}
+.app {
+  width: 80vw;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(100, 100, 100, 0.3);
+}
+
+// flex布局样式
+.flex {
+  display: flex;
+}
+.flex-d {
+  flex-direction: column;
+}
+.flex-j-sb {
+  justify-content: space-between;
+}
+.flex-j-sa {
+  justify-content: space-around;
+}
+.flex-a-sb {
+  align-items: center;
+}

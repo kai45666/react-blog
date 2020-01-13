@@ -5,6 +5,7 @@ import {receiveUser} from '../store/actions'
 import Header from '../components/Header/Header'
 import Home from './Home/Home'
 import Video from './Video/Video'
+import '../assets/css/common.scss'
 
 export class App extends Component {
   handleClick = () => {
@@ -15,7 +16,7 @@ export class App extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="app">
         <Router>
           <Header />
           <Route exact path="/" component={Home} />
