@@ -22,7 +22,6 @@ export class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/video" component={Video} />
         </Router>
-        <button onClick={this.handleClick}>点击</button>
       </div>
     )
   }

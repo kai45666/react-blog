@@ -1,0 +1,23 @@
+.home {
+  .left-container {
+    list-style: none;
+    li {
+      height: 100px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+      h2 {
+        color: #21759b;
+        font-size: 22px;
+      }
+      p:nth-child(2) {
+        color: #444444;
+        font-size: 14px;
+      }
+      p:nth-child(3) {
+        color: #757575;
+        font-size: 13px;
+      }
+    }
+  }
+}
