@@ -3,9 +3,41 @@
 const Service = require('egg').Service;
 
 class UserService extends Service {
-  async find(uid) {
-    const user = await this.ctx.db.query('select * from user where uid = ?', uid);
-    return user;
+  async get() {
+    const sql = `
+      SELECT (
+        id,
+        username,
+        type
+      )
+      FROM
+      user
+    `;
+    const res = await this.app.mysql.query(sql);
+    return res;
+  }
+  async find(username) {
+    const sql = `
+      SELECT 
+      *
+      FROM
+      user
+      WHERE username = ${username}
+    `;
+    const res = await this.app.mysql.query(sql);
+    return res;
+  }
+  async add(data) {
+    const sql = `
+      INSERT INTO user VALUES(
+        '${data.id}',
+        '${data.username}',
+        '${data.password}',
+        '${data.type}'
+      )
+    `;
+    const res = await this.app.mysql.query(sql);
+    return res;
   }
 }
 

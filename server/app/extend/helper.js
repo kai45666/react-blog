@@ -45,4 +45,8 @@ module.exports = {
       };
     }
   },
+  jwtSign(data) {
+    const token = this.app.jwt.sign(data, this.app.config.jwt.secret, { expiresIn: 60 * 60 });
+    return token;
+  },
 };
