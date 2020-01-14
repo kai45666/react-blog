@@ -6,6 +6,10 @@ node_modules
 .pnp.js
 .vscode
 package-lock.json
+logs
+run
+typings
+jsconfig.json
 
 # testing
 coverage
