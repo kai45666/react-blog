@@ -35,6 +35,22 @@ module.exports = appInfo => {
       // 是否加载到 agent 上，默认关闭
       agent: false,
     },
+    onerror: {
+      all(err, ctx) {
+        switch (err.errno) {
+          case 1062: {
+            const value = err.sqlMessage.replace(/\'/g, '').split(' ')[2];
+            ctx.body = `${value} 已存在, 请重新输入`;
+            ctx.status = 500;
+            break;
+          }
+          default: {
+            ctx.body = 'error';
+            ctx.status = 500;
+          }
+        }
+      },
+    },
   };
 
   // use for cookie sign key, should change to your own and keep security

@@ -16,27 +16,14 @@ class CategoryController extends Controller {
   async add() {
     const { ctx } = this;
     const { name } = ctx.request.body;
-    const id = uuid().replace(/-/g, '');
-    if (!name) {
-      ctx.body = {
-        code: '1',
-        msg: '类别名称不能为空',
-      };
+    ctx.helper.validate('name', name, 'required string');
+    if (ctx.body) {
       return;
     }
+    const id = uuid().replace(/-/g, '');
     const data = { id, name };
     const res = await ctx.service.category.add(data);
-    if (res.affectedRows === 1) {
-      ctx.body = {
-        code: '0',
-        msg: '新增成功',
-      };
-    } else {
-      ctx.body = {
-        code: '1',
-        msg: '新增失败',
-      };
-    }
+    ctx.helper.response(res.affectedRows === 1, '新增成功', '新增失败');
   }
 }
 
