@@ -22,10 +22,10 @@ class UserService extends Service {
       *
       FROM
       user
-      WHERE username = ${username}
+      WHERE username = '${username}'
     `;
     const res = await this.app.mysql.query(sql);
-    return res;
+    return res[0];
   }
   async add(data) {
     const sql = `
