@@ -1,18 +1,19 @@
 'use strict';
 
-module.exports = app => {
+module.exports = () => {
   return async function jwt(ctx, next) {
     const token = ctx.request.headers.token;
     try {
-      const res = await app.jwt.verify(token, app.config.jwt.secret);
+      const res = ctx.app.jwt.verify(token, ctx.app.config.jwt.secret);
       ctx.request.jwtInfo = res;
-      await next();
     } catch (e) {
       ctx.body = {
         code: '1',
         msg: 'token无效',
       };
+      return;
     }
+    await next();
   };
 };
 

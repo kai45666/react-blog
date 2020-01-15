@@ -12,4 +12,6 @@ module.exports = app => {
   router.post('/admin/user/delete', controller.admin.user.delete);
   router.get('/admin/category/get', controller.admin.category.get);
   router.post('/admin/category/add', jwt, controller.admin.category.add);
+  router.post('/admin/category/update', jwt, controller.admin.category.update);
+  router.post('/admin/category/delete', jwt, controller.admin.category.delete);
 };

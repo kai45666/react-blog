@@ -47,7 +47,6 @@ class UserService extends Service {
       WHERE 
       id='${data.id}'
     `;
-    console.log(sql, 1);
     const res = await this.app.mysql.query(sql);
     return res;
   }
