@@ -39,6 +39,26 @@ class UserService extends Service {
     const res = await this.app.mysql.query(sql);
     return res;
   }
+  async update(data) {
+    const sql = `
+      UPDATE user SET 
+      ${data.username ? `username='${data.username}'${data.password ? ',' : ''}` : ''}
+      ${data.password ? `password='${data.password}'` : ''}
+      WHERE 
+      id='${data.id}'
+    `;
+    console.log(sql, 1);
+    const res = await this.app.mysql.query(sql);
+    return res;
+  }
+  async delete(id) {
+    const sql = `
+      DELETE FROM user WHERE
+      id='${id}'
+    `;
+    const res = await this.app.mysql.query(sql);
+    return res;
+  }
 }
 
 module.exports = UserService;

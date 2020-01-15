@@ -3,16 +3,14 @@
 module.exports = {
   validate(key, value, validate) {
     const { ctx } = this;
-    if (/required/.test(validate)) {
-      if (!value) {
-        ctx.body = {
-          code: '1',
-          msg: `${key} 不能为空`,
-        };
-        return;
-      }
+    if (/required/.test(validate) && !value) {
+      ctx.body = {
+        code: '1',
+        msg: `${key} 不能为空`,
+      };
+      return;
     }
-    if (/string/.test(validate)) {
+    if (/string/.test(validate) && value) {
       if (typeof value !== 'string') {
         ctx.body = {
           code: '1',
@@ -21,7 +19,7 @@ module.exports = {
         return;
       }
     }
-    if (/number/.test(validate)) {
+    if (/number/.test(validate) && value) {
       if (typeof value !== 'number') {
         ctx.body = {
           code: '1',
